@@ -56,7 +56,7 @@ function exec2(file, args /*, options, callback */) {
     }
   });
 
-  child.addListener("exit", function (code, signal) {
+  child.addListener("close", function (code, signal) {
     if (timeoutId) clearTimeout(timeoutId);
     if (code === 0 && signal === null) {
       if (callback) callback(null, stdout, stderr);
